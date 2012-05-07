@@ -56,9 +56,15 @@ function islandora_json_to_list_viewer_theme() {
  *   The variables to prepare for themeing
  */
 function islandora_json_to_list_viewer_preprocess_islandora_JSON_to_list(&$vars) {
-  $pid = $vars['pid'];
+  $fedora_pid = $vars['pid'];
   $dsid = $vars['dsid'];
-  // Lets go through the islandora proxy to respect Drupal side permissions.
-  $URL_to_JSON = url("fedora/repository/$pid/$dsid", array(
-       'absolute' => TRUE));
+  module_load_include('object.inc', 'islandora_fedora_api');
+
+  $Fedora_object = new FedoraObject($fedora_pid);
+  $Fedora_object_datastreams = $Fedora_object->get_datastreams();
+  // Get the JSON text from the datastream.
+  $JSON_datastream = $Fedora_object_datastreams[$dsid];
+  $JSON = $JSON_datastream->__get('content');
+
+  $vars['JSON_datastream'] = json_decode($JSON);
 }
