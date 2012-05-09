@@ -7,7 +7,7 @@
  */
 
 ?>
-<div id="islandora_json_to_list_viewer">
+<div class="islandora_json_to_list_viewer">
 <?php
   /**
    * recursive function that prints an
