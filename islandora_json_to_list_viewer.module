@@ -58,7 +58,6 @@ function islandora_json_to_list_viewer_theme() {
 function islandora_json_to_list_viewer_preprocess_islandora_JSON_to_list(&$vars) {
   $fedora_pid = $vars['pid'];
   $dsid = $vars['dsid'];
-  drupal_set_message($dsid);
   module_load_include('object.inc', 'islandora_fedora_api');
 
   $Fedora_object = new FedoraObject($fedora_pid);
