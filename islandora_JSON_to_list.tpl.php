@@ -23,7 +23,7 @@
       if (is_object($value)) :
         print_JSON_in_list($value);
       else:
-        print ($type . ':  ' . $value);
+        print ('<STRONG>' . $type . '</STRONG> :  ' . $value);
       endif;
       print ('</LI>');
     endforeach;
