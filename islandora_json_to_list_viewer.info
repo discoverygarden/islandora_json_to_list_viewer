@@ -1,5 +1,6 @@
 name = Islandora JSON to list viewer
 description = Provides an unordered list view of JSON data.
 package = Islandora Viewers
+dependencies[] = fedora_repository
 version = 6.x-$Format:%h$-dev
 core = 6.x
