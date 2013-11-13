@@ -6,9 +6,10 @@
  */
 
 /**
- * This function is the hook into the 'islandora viewer sphere' it reports that
- * this module can handle the JSON mime type and the theme function to call
- * to use it.
+ * This function is the hook into the 'islandora viewer sphere'.
+ *
+ * It reports that this module can handle the JSON mime type and the theme
+ * function to call to use it.
  *
  * @param string $mime_type
  *   The mime_type that is being queried for
@@ -28,6 +29,7 @@ function islandora_json_to_list_viewer_islandora_viewers($mime_type = NULL) {
 
 /**
  * This function makes available the islandora_JSON_to_list theme.
+ *
  * The theme will display an HTML unordered list
  *
  * @return array
@@ -46,18 +48,15 @@ function islandora_json_to_list_viewer_theme() {
 }
 
 /**
- * This is a preprocessor function that
- * will prepare to display JSON data as an HTML list
+ * Preprocessor function that will prepare to display JSON data as an HTML list.
  *
- * It will take the JSON and format as a nested array
- * in preparation for themeing.
+ * It will take the JSON and format as a nested array in preparation for
+ * themeing.
  *
  * @param array $vars
  *   The variables to prepare for themeing
  */
 function islandora_json_to_list_viewer_preprocess_islandora_JSON_to_list(&$vars) {
-  module_load_include('inc', 'fedora_repository', 'api/tuque');
-
-  $Fedora_object = islandora_object_load($vars['pid']);
-  $vars['JSON_datastream'] = json_decode($Fedora_object[$vars['dsid']]->content);
+  $fedora_object = islandora_object_load($vars['pid']);
+  $vars['JSON_datastream'] = json_decode($fedora_object[$vars['dsid']]->content);
 }
