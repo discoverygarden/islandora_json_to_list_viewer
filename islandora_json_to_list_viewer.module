@@ -38,7 +38,7 @@ function islandora_json_to_list_viewer_islandora_viewers($mime_type = NULL) {
 function islandora_json_to_list_viewer_theme() {
   return array(
     'islandora_JSON_to_list' => array(
-      'arguments' => array(
+      'variables' => array(
         'pid' => NULL,
         'dsid' => 'SWF',
       ),
